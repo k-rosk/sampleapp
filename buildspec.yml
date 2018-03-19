@@ -1,18 +1,15 @@
-version: 0.0
-os: linux
-files:
-  - source: /index.html
-    destination: /var/www/html/
-hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: root
-    - location: scripts/start_server
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
+version: 0.2
 
+phases:
+  build:
+    commands:
+      - sudo apt -y install apache2
+      - sudo cp /index.html /index.html
+      - sudo service apache2 start
+
+artifacts:
+  files:
+    - /index.html
+    - scripts/install_dependencies
+    - scripts/start_server
+    - scripts/stop_server
