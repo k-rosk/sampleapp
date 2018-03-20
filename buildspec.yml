@@ -4,12 +4,8 @@ phases:
   build:
     commands:
       - sudo apt -y install apache2
-      - sudo cp /index.html /index.html
       - sudo service apache2 start
-      - cd 
+      - cd /var/www/html/
 artifacts:
   files:
     - /index.html
-    - scripts/install_dependencies
-    - scripts/start_server
-    - scripts/stop_server
