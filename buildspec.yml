@@ -6,7 +6,7 @@ phases:
       - sudo apt -y install apache2
       - sudo cp /index.html /index.html
       - sudo service apache2 start
-
+      - cd 
 artifacts:
   files:
     - /index.html
